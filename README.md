@@ -1,5 +1,5 @@
 # ContactDemo
-A contact backups demo
+一个备份手机通讯录的Demo，可将通讯录备份到手机SD卡内。
 
 Demo: https://github.com/20160/ContactDemo/blob/master/app/release/app-release.apk
 
