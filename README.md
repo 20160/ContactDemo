@@ -6,7 +6,7 @@ Demo: https://github.com/20160/ContactDemo/blob/master/app/release/app-release.a
 #License
 
 
-    Copyright 2016 Zheng Zibin
+    Copyright 2018 20160
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
