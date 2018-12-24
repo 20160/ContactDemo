@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
@@ -66,10 +67,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btn_upload:
                 if (hasPermission) {
+
+                    if (TextUtils.isEmpty(etName.getText().toString()) || TextUtils.isEmpty(etNum.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "请输入名字和号码用来做备份文件名", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     final AlertDialog alertDialog;
                     AlertDialog.Builder builder = new AlertDialog.Builder(mActivitySupport);
                     builder.setTitle("提示");
-                    builder.setMessage("是否确认备份通讯录到手机？");
+                    builder.setMessage("确定备份通讯录到手机？");
                     builder.setCancelable(false);
                     alertDialog = builder.create();
                     alertDialog.setButton(BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
@@ -143,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final AlertDialog alertDialog;
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivitySupport);
         builder.setTitle("提示");
-        builder.setMessage("备份成功");
+        builder.setMessage("成功，备份文件：\"手机存储/通讯录备份\"");
         builder.setCancelable(false);
         alertDialog = builder.create();
         alertDialog.setButton(BUTTON_POSITIVE, "确定", new DialogInterface.OnClickListener() {
