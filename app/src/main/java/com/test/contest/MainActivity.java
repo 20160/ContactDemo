@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private MainActivity mActivitySupport;
     private AppCompatEditText etName;
-    private AppCompatEditText etNum;
     private Map<String, List<String>> contactModels;
     private boolean hasPermission;
 
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mActivitySupport = this;
         etName = (AppCompatEditText) findViewById(R.id.et_name);
-        etNum = (AppCompatEditText) findViewById(R.id.et_num);
         findViewById(R.id.btn_upload).setOnClickListener(this);
         contactModels = new HashMap<>();
 
@@ -68,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_upload:
                 if (hasPermission) {
 
-                    if (TextUtils.isEmpty(etName.getText().toString()) || TextUtils.isEmpty(etNum.getText().toString())) {
-                        Toast.makeText(getApplicationContext(), "请输入名字和号码用来做备份文件名", Toast.LENGTH_SHORT).show();
+                    if (TextUtils.isEmpty(etName.getText().toString())) {
+                        Toast.makeText(getApplicationContext(), "请输入备份文件名", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -106,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
 
                             try {
-                                saveToSD(etName.getText().toString() + etNum.getText().toString(), stringBuilder.toString());
+                                saveToSD(etName.getText().toString(), stringBuilder.toString());
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

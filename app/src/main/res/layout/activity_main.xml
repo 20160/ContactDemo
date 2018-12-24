@@ -16,19 +16,11 @@
     <android.support.v7.widget.AppCompatEditText
         android:layout_marginTop="20dp"
         android:id="@+id/et_name"
-        android:hint="输入名字"
+        android:hint="输入备份文件名"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"/>
 
-    <android.support.v7.widget.AppCompatEditText
-        android:id="@+id/et_num"
-        android:hint="输入本机号码"
-        android:inputType="number"
-        android:maxLength="11"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btn_upload"
